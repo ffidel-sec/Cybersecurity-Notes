@@ -32,7 +32,9 @@ _6to_ -> Validaciones por Content-Type:
 
 Cambiar el Content-Type de las peticiones:
 
-![[Pasted image 20251117113854.png|420]] ![[Pasted image 20251117113941.png|450]]
+![Screenshot](../../Images/file_upload1.png)
+
+![Screenshot](../../Images/file_upload2.png)
 
 -------
 _7mo_ -> Validacion por los primeros bytes (file signature/magic bytes) del archivo:
