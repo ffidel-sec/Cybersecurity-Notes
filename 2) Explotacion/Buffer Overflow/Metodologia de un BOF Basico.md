@@ -29,13 +29,13 @@ _A_ -> _Padding_ o _before EIP_
 _B_ (42424242) -> _EIP_
 _C_ -> After EIP
 
-![[Pasted image 20251126204742.png|700]]
+![Screenshot](../../Images/bof1.png)
 
 Vemos que el _After EIP_ se esta escribiendo en el registro **ESP**.
 
 Si nosotros entramos en detalle de lo que hay atras del **ESP**, podemos ver algo asi:
 
-![[Pasted image 20251126205324.png|250]]
+![Screenshot](../../Images/bof2.png)
 
 Ahora, nos gustaria redirigir el **EIP** (`B`) --> _0251A128_, que es la direccion de memoria donde empieza el _ESP_ ---> pero **NO** es tan facil.
 
@@ -65,7 +65,7 @@ Ahora, nos gustaria redirigir el **EIP** (`B`) --> _0251A128_, que es la direcci
 
 
 * Una vez tenemos el **bytearray**, vamos a mandarlo al **esp** (en lugar de las **C**), despues del **EIP**. Deberiamos ver algo asi, en este caso, revienta en`0x0a`, ya que esta despues de 09: 
-![[Pasted image 20251126215621.png]]
+![Screenshot](../../Images/bof3.png)
 * Ahora que se hace?? Sacamos el _badchar_ del _bytearray_ y repetimos el proceso hasta que recorra **todo** el _bytearray_ completo.
 
 ---
@@ -78,7 +78,7 @@ Tenemos que apuntar a _una direccion donde se aplique un salto al_ **ESP** ---> 
 ```
 Y vamos a ver algo asi:
 
-![[Pasted image 20251127115926.png|750]]
+![Screenshot](../../Images/bof4.png)
 En las primeras 4 columnas que dice True o False (Desde Rebase hasta NXCompat) especifican protecciones, buscamos que sean todas **False**. Para buscar `jmp esp` dentro de ellas
 
 SABEMOS QUE `jmp esp` -> \xFF\xE4 
@@ -88,7 +88,7 @@ Entonces vamos a buscar eso dentro de cualquier _Path_ con las protecciones desh
 ```
 
 Devuelve algo asi:
-![[Pasted image 20251127121434.png|750]]
+![Screenshot](../../Images/bof5.png)
 Vamos a buscar en las direcciones (full izq), las q no tengan los _BadChars_ (\x00\x0a\x0d). Vamos a elegir la ultima (0x5f4c4d13).
 
 Si no encuentra nada, hay otra forma:
