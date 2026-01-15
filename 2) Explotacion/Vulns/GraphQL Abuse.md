@@ -28,7 +28,8 @@ Justo en este ejemplo se podria tratar de hacer un **IDOR** cambiando el id.
 _Introspection_: Técnica para descubrir la estructura interna de un sistema.
 
 Si nos encontramos con un endpoint `/graphql`, cuya interfaz se ve mas o menos asi:
-![[Pasted image 20251120182951.png|750]]
+
+![Screenshot](../../Images/graphql1.png)
 
 En el recurso adjunto al comiento (1) hay una serie de payloads que pueden servir para enumerar. Por ejemplo:
 ```c
@@ -47,7 +48,8 @@ Ese payload, se pega en la url (`http://localhost/graphql?query=`) pero suele de
 TOOODO Lo que devuelve -> LO COPIAS y vas al 2do enlace (https://apis.guru/graphql-voyager/) -> Change Schema -> Introspection -> Pegas ---> **Base de Datos**
 
 Se deberia ver mas o menos asi:
-![[Pasted image 20251120183919.png|400]]
+
+![Screenshot](../../Images/graphql2.png)
 
 ---
 Una vez que podemos ver el esquema ahi bien piola, podemos buscar donde se hace alguna peticion a graphql (suelen ser asi):
@@ -64,5 +66,4 @@ y podemos modificar la query para acceder a los datos q interesan:
 }
 ```
 
-![[Pasted image 20251120184152.png|900]]
-
+![Screenshot](../../Images/graphql3.png)
