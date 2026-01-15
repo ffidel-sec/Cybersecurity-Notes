@@ -18,4 +18,3 @@ Es decir, el proxy **SI me permite** ver el puerto 80! pero no deberia permitirm
 La misma flag --proxy puede servir para **gobuster** y creo que --proxies en **nmap**
  
 ---
-Si no se entiende mandale el 2do comando a chatgpt y fijate.
