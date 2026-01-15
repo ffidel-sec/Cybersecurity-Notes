@@ -1,0 +1,3 @@
+#Broken-Access-Control
+
+Los IDORs (_Insecure Direct Object Reference_) ocurre cuando una aplicacion permite acceder, modificar o borrar datos simplemente cambiando un identificador enviado por el usuario, como un numero en la url (`?id=100`), un parametro en el body o un ID en el JSON. El problema es que el backend no valida que el recurso solicitado te pertenezca, por lo que si modificas `id=100` por `id=101` y te deja ver informacion de otro usuario, archivo o pedido, la aplicacion esta exponiendo objetos internos sin control de acceso. Es una de las vulnerabilidades mas simples y mas criticas porque **no requiere payloads, solo manipular IDs**. 

@@ -1,0 +1,1 @@
+_Waybackurls_ sirve para **extraer todas las URLs históricas** de un dominio desde el **Wayback Machine (archive.org)** y otras fuentes como Common Crawl. El uso principal que se le da en pentesting es encontrar EndPoints antiguos, rutas eliminadas, parametros, paneles, etc. Que pueden **seguir existiendo** aunque ya no esten visibles

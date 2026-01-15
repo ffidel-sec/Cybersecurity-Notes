@@ -1,0 +1,2 @@
+Si comprometiste un _WordPress_, podrias intentar buscar un wp-config o un archivo que configuracion, que suelen revelar credenciales.
+Se puede encontrar con un **find** o yendo a /var/www/html y buscando por algun wp-config
