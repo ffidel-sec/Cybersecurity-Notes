@@ -44,7 +44,7 @@ gopherus --exploit postgresql
 gopherus --exploit fastcgi
 ```
 
-![[Pasted image 20251215115539.png|820]]
+![Screenshot](../../../Images/ssrf1.png)
 
 INCLUSOOO, si se tienen los privilegios, se pueden modificar datos, por ejemplo, poniendo la siguiente query:
 ```SQL

@@ -2,13 +2,13 @@
 **PortSwigger Cheat-Sheet** ->  https://portswigger.net/web-security/sql-injection/cheat-sheet
 # Sintaxis basica de SQL: 
 
-![[Pasted image 20251031122450.png]]
+![Screenshot](../../../Images/sqli4.png)
 
 Supongamos que tenemos las siguientes DB
 
 `SHOW DATABASES;` -> Muestra las bases de datos disponibles
 
-![[Pasted image 20251031120010.png|170]]
+![Screenshot](../../../Images/sqli1.png)
 
 ---------------------
 Podemos utilizar el siguiente comando para meternos dentro de determinada DB
@@ -16,23 +16,24 @@ Podemos utilizar el siguiente comando para meternos dentro de determinada DB
 `USE mysql;` -> Es como que nos _metemos_ dentro de la db mysql.
 `SHOW TABLES;` -> Enlista las _tablas_ de la DB.
 
-![[Pasted image 20251031120344.png|175]]
+![Screenshot](../../../Images/sqli2.png)
 
 ---------
 `DESCRIBE user;` -> Muestra los **registros** de la tabla _user_ (a continuacion algunas columnas de la tabla user)
 
-![[Pasted image 20251031120839.png|355]]
+![Screenshot](../../../Images/sqli3.png)
 
 ------------------
 `SELECT user,password FROM user;` -> Muestra el contenido de los registros user y password
 En este caso no listamos ninguna Password
 
-![[Pasted image 20251031122908.png|175]]
+![Screenshot](../../../Images/sqli7.png)
 
 Asi aplicamos filtros sobre la busqueda:
 
 `SELECT user,password FROM user WHERE user = 'root'`
-![[Pasted image 20251031123406.png|175]]
+
+![Screenshot](../../../Images/sqli8.png)
 
 -----------
 # Creacion y modificacion de una DB
@@ -51,7 +52,9 @@ CREATE TABLE usuarios (id int AUTO_INCREMENT PRIMARY KEY, username TEXT, passwor
 ```
 
 Dicha tabla se ve asi ahora mismo:
-![[Pasted image 20251031131649.png|360]]
+
+![Screenshot](../../../Images/sqli9.png)
+
 Esta tabla tiene las columnas _id_, _username_, _password_.
 
 
@@ -157,6 +160,6 @@ Todo esto siempre y cuando la web _interprete_ php y este alojada en _/var/www/h
 ---
 ### Formas de concatenacion
 
-![[Pasted image 20251103232149.png|300]]
+![Screenshot](../../../Images/sqli10.png)
 
 

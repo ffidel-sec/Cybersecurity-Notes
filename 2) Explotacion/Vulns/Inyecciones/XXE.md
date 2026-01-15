@@ -3,7 +3,7 @@ Para entender las inyecciones _XXE_, primero hay que entender que es una **DTD**
 
 * **DTD Interna**: Es la que viene incluida _directamente_ en el archivo XML, es decir, los elementos, se declaran y definen en el mismo archivo, se puede ver mas o menos asi.
  
-![[Pasted image 20251105105831.png|325]]
+![Screenshot](../../../Images/xxe1.png)
 
 ----------
 * **DTD Externa**: Las entidades se definen en un archivo externo _.dtd_. y se veria mas o menos asi:
