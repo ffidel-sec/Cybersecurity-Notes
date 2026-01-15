@@ -16,9 +16,9 @@ Describe el proceso donde el framework hace “bind” automático entre **pará
 -----
 Supongamos que tenemos el siguiente formulario, con las siguientes respuestas:
 
-![[Pasted image 20251117162443.png|800]]
+![Screenshot](../../../../Images/mass_assignment_attack1.png)
 
 Pero... y si le agrego la propiedad _role_ a mi peticion?
 
-![[Pasted image 20251117162725.png|800]]
+![Screenshot](../../../../Images/mass_assignment_attack2.png)
 
