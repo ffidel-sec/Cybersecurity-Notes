@@ -41,7 +41,7 @@ Content-Type: aplication/x-php
 ```
 
 
-Si te deja, joya, si encontras un LFI --> _RCE VIOLADOR_.
+Si te deja, joya, si encontras un LFI --> _RCE_.
 
 Ahora hay que aplicar un **Race Condition**, ya que casi siempre se elimina solo el archivo q se crea. Para ello, hay un script, alojado en `Escritorio/maquinas/Infovore/exploits/phpinfolfi.py`. Que tenes que debuggear bastante pero termina funcionando. **SE EJECUTA CON python2.7**
 
