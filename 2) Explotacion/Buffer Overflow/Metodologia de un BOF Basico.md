@@ -64,8 +64,10 @@ Ahora, nos gustaria redirigir el **EIP** (`B`) --> _0251A128_, que es la direcci
 **NOTA**: Hay algunos bytes que suelen dar problemas, suelen ser _badchars_ -> `0x00 (nullbyte)`, `0x0a` o `0x0d`
 
 
-* Una vez tenemos el **bytearray**, vamos a mandarlo al **esp** (en lugar de las **C**), despues del **EIP**. Deberiamos ver algo asi, en este caso, revienta en`0x0a`, ya que esta despues de 09: 
+* Una vez tenemos el **bytearray**, vamos a mandarlo al **esp** (en lugar de las **C**), despues del **EIP**. Deberiamos ver algo asi, en este caso, revienta en`0x0a`, ya que esta despues de 09:
+   
 ![Screenshot](../../Images/bof3.png)
+
 * Ahora que se hace?? Sacamos el _badchar_ del _bytearray_ y repetimos el proceso hasta que recorra **todo** el _bytearray_ completo.
 
 ---
@@ -79,6 +81,7 @@ Tenemos que apuntar a _una direccion donde se aplique un salto al_ **ESP** ---> 
 Y vamos a ver algo asi:
 
 ![Screenshot](../../Images/bof4.png)
+
 En las primeras 4 columnas que dice True o False (Desde Rebase hasta NXCompat) especifican protecciones, buscamos que sean todas **False**. Para buscar `jmp esp` dentro de ellas
 
 SABEMOS QUE `jmp esp` -> \xFF\xE4 
@@ -88,7 +91,9 @@ Entonces vamos a buscar eso dentro de cualquier _Path_ con las protecciones desh
 ```
 
 Devuelve algo asi:
+
 ![Screenshot](../../Images/bof5.png)
+
 Vamos a buscar en las direcciones (full izq), las q no tengan los _BadChars_ (\x00\x0a\x0d). Vamos a elegir la ultima (0x5f4c4d13).
 
 Si no encuentra nada, hay otra forma:
