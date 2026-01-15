@@ -19,5 +19,5 @@ _-auth admin:richard_ -> Se agrega si pide login
 ------
 Se veria asi una respuesta exitosa de davtest:
 
-![Screenshot](Images/webdav_enum1.png)
+![Screenshot](../Images/webdav_enum1.png)
 
