@@ -44,7 +44,7 @@ gopherus --exploit postgresql
 gopherus --exploit fastcgi
 ```
 
-![Screenshot](../../../../Images/ssrf1.png)
+![Screenshot](../../../Images/ssrf1.png)
 
 INCLUSOOO, si se tienen los privilegios, se pueden modificar datos, por ejemplo, poniendo la siguiente query:
 ```SQL
