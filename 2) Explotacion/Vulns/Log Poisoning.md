@@ -8,13 +8,15 @@ Si se tiene la capacidad de listar archivos internos, se puede probar listar los
 **/var/log/apache2(o nginx)/access.log** --> Este directorio contiene los logs de Apache. Para explotar el **LogPoisoning**, podemos enviar el siguiente comando:
 Cuando podemos listar los logs, es probable que nos devuelva info de la peticion, por ejemplo si le hacemos un curl, nos va a devolver nuesto _User-Agent_:
 
-![[Pasted image 20251217164516.png|800]]
+![Screenshot](../../Images/log_poisoning1.png)
+
 Y si probamos cambiar el User-Agent? podemos enviar la siguiente peticion 
 ```bash
 curl -s -X GET "http://localhost/index.php" -H "User-Agent: PROBANDO ?>"
 ```
 y tal vez nos devuelva algo como esto:
-![[Pasted image 20251217164717.png|800]]
+
+![Screenshot](../../Images/log_poisoning2.png)
 
 Ahora vamos a intentar insertar codigo php en el _User-Agent_:
 
