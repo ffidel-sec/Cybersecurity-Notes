@@ -37,4 +37,4 @@ if (
 
 y haciendo la siguiente peticion, cambiando el tipo de dato a _array_, poniendo corchetes en la contrasena de la siguiente forma:
 
-![[Pasted image 20251217194837.png|500]]
+![Screenshot](../../../Images/typejuggling1.png)
