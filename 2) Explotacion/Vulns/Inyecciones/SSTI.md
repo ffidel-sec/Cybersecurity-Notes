@@ -7,7 +7,7 @@ Esta es una vulnerabilidad que se aprovecha de una mala implementacion de motore
 ------
 Estos son los motores de plantillas mas comunes para cada lenguaje.
 
-![[Pasted image 20251111105248.png|150]]
+![Screenshot](../../../Images/ssti1.png)
 
 ----------
 ### Indice
