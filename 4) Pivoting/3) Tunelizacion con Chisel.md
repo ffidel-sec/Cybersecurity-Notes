@@ -69,7 +69,7 @@ _R:socks_ -> Crea una especie de tunel, por defecto por el puerto 1080 (el puert
 _R:9999:socks_ -> Le especificas en que puerto queres crear el tunel, a diferencia del comando anterior, que lo corre por defecto en el 1080.
 
 
-![[Pasted image 20251215091221.png|400]]
+![Screenshot](../../Images/pivoting_chisel1.png)
 
 ---
 #### Que hacer cuando comprometemos mas maquinas
