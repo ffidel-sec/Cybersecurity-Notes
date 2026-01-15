@@ -1,1 +1,1 @@
-![[Pasted image 20251203112459.png]]
+![Screenshot](../Images/pivoting1.png)
