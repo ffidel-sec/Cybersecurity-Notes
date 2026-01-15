@@ -14,7 +14,7 @@ El _~/rules.v4_ es como un **backup** de las reglas, puede tener cualquier nombr
 
 En _Debian_/_Ubuntu_, podemos instalar _iptables-persistent_ y se trabaja asi:
 
-![[Pasted image 20251103184754.png|450]]
+![Screenshot](../../Images/iptables_image4.png)
  
 ---------------
 ¿Cual es su _funcion_?
@@ -24,7 +24,7 @@ Su funcion es permitir, bloquear o redirigir paquetes segun ciertas reglas estab
 _iptables_ esta compuesta por tablas y cadenas. 
 
 
-![[Pasted image 20251030115255.png | 550]]
+![Screenshot](../../Images/iptables_image3.png)
 
 Aqui se ven representadas las 3 cadenas (_INPUT_, _OUTPUT_ y _FORWARD_), cada una representa el **recorrido** del paquete.
 
@@ -34,7 +34,7 @@ _FORWARD_ ->Trafico que _pasa a traves_ del host, si es que hace de router/firew
 
 
 
-![[Pasted image 20251030114449.png | 550]]
+![Screenshot](../../Images/iptables_image.png)
 
 
 Las tablas mas conocidas son:
