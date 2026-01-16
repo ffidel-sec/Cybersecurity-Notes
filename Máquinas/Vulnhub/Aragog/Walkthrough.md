@@ -4,7 +4,7 @@ Bien, empezaremos realizando un escaneo con nmap a la IP:
 sudo nmap -p- --open -Ss --min-rate 5000 -vvv -Pn -n 192.168.111.135 -oG allPorts
 ```
 
-![Screenshot](/Images/aragog1.png)
+![Screenshot](../Images/aragog1.png)
 
 Descubrimos 2 puertos abiertos:
 _22_: SSH
