@@ -4,7 +4,7 @@ Bien, empezaremos realizando un escaneo con nmap a la IP:
 sudo nmap -p- --open -Ss --min-rate 5000 -vvv -Pn -n 192.168.111.135 -oG allPorts
 ```
 
-![[Pasted image 20260116112632.png]]
+![Screenshot](/Images/aragog1.png)
 
 Descubrimos 2 puertos abiertos:
 _22_: SSH
@@ -16,7 +16,7 @@ Ahora vamos a realizar un escaneo mas exhaustivo, tratando de descubrir las vers
 nmap -p22,80 -sCV 192.168.111.135 -oN targeted
 ```
 
-![[Pasted image 20260116113103.png]]
+![Screenshot](/Images/aragog2.png)
 
 En este punto el principal vector seria web, por lo que realizamos un pequeño escaneo utilizando el script de nmap **http-enum**:
 
@@ -24,16 +24,17 @@ En este punto el principal vector seria web, por lo que realizamos un pequeño e
 nmap -p80 --script http-enum 192.168.111.135 -oN webScan
 ```
 
-![[Pasted image 20260116113235.png]]
+![Screenshot](/Images/aragog3.png)
 
 Vamos a entrar al _/blog/_ para ver que nos encontramos:
-![[Pasted image 20260116114600.png]]
+
+![Screenshot](/Images/aragog4.png)
 
 Si hacemos Ctrl+u e inspeccionamos el codigo fuente podemos ver que llama al dominio _wordpress.aragog.hogwarts_, por lo que lo agreguamos a nuestro _/etc/hosts_
 
-![[Pasted image 20260116114700.png]]
+![Screenshot](/Images/aragog5.png)
 
-![[Pasted image 20260116114902.png]]
+![Screenshot](/Images/aragog6.png)
 
 Vamos a usar la herramienta **whatweb** para ver las tecnologías de la pagina:
 
@@ -50,7 +51,7 @@ wpscan --url 'http://wordpress.aragog.hogwarts/blog/' -e u,vp,vt --api-token='F8
 
 Explotaremos la siguiente vulnerabilidad en el plugin _wp-file-manager_:
 
-![[Pasted image 20260116122501.png]]
+![Screenshot](/Images/aragog7.png)
 
 Y utilizaremos la siguiente fuente: https://seravo.com/en/0-day-vulnerability-in-wp-file-manager/
 
@@ -92,7 +93,7 @@ Ahora tenemos la capacidad de agregar el parametro _cmd_ para consolidar la **RC
 http://wordpress.aragog.hogwarts/blog/wp-content/plugins/wp-file-manager/lib/files/payload.php?cmd=whoami
 ```
 
-![[Pasted image 20260116124349.png]]
+![Screenshot](/Images/aragog8.png)
 
 Ahora simplemente nos ponemos en escucha con _netcat_ y nos mandamos la reverse shell:
 
@@ -129,15 +130,15 @@ Entramos en la fase de la escalada, cuando comprometemos un wordpress, es recome
 find / -name "*wp-config*" 2>/dev/null
 ```
 
-![[Pasted image 20260116125407.png]]
+![Screenshot](/Images/aragog9.png)
 
 Si analizamos un poco el primer archivo, podemos ver que el archivo de configuracion de Debian se encuentra en la siguiente ruta: `/etc/wordpress/config-default.php`
 
-![[Pasted image 20260116125809.png]]
+![Screenshot](/Images/aragog10.png)
 
 En este archivo estan las credenciales de Mysql:
 
-![[Pasted image 20260116130501.png]]
+![Screenshot](/Images/aragog11.png)
 
 Ahora nos conectamos a la base de datos:
 ```bash
@@ -146,15 +147,15 @@ mysql -u root -p wordpress
 
 Vemos las tablas de la base de datos:
 
-![[Pasted image 20260116130821.png]]
+![Screenshot](/Images/aragog12.png)
 
 Vemos el contenido de la tabla _wp-users_:
 
-![[Pasted image 20260116131055.png]]
+![Screenshot](/Images/aragog13.png)
 
 Ahora tenemos el hash de la contraseña del usuario **hagrid98**. Ahora vemos que tipo de hash es con hashid:
 
-![[Pasted image 20260116131420.png]]
+![Screenshot](/Images/aragog14.png)
 
 Simplemente crackeamos el hash con _john_ utilizando la wordlist _rockyou_:
 
@@ -188,7 +189,7 @@ done
 
 Una vez le damos permisos y lo ejecutamos, vamos a ver lo siguiente:
 
-![[Pasted image 20260116132626.png]]
+![Screenshot](/Images/aragog15.png)
 
 Aca vemos que **root** ejecuta _.backup.sh_ a intervalos regulares de tiempo, y como usuario hagrid somos propietarios del archivo, por lo que podemos escribir dentro de el. 
 
@@ -199,4 +200,4 @@ chmod u+s /bin/bash
 
 Ahora simplemente esperamos a que se ejecute el comando y lanzamos un `sudo -p` y tenemos la maquina **completamente comprometida2**!
 
-![[Pasted image 20260116133408.png]]
+![Screenshot](/Images/aragog16.png)
